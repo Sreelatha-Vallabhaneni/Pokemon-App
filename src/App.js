@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/header';
-import './sass/main.scss';
 import { fetchPokemon } from './services/fetchPokemon';
+import './sass/main.scss';
 
 function App() {
+  const [pokemonData, setPokemonData] = useState([])
   const [next, setNext] = useState('');
   const [previous, setPrevious] = useState('');
   const [loading, setLoading] = useState(true);
@@ -12,18 +13,32 @@ function App() {
   useEffect(() => {
     async function fetchData() {
         try{
-      let response = await fetchPokemon(initialURL);
-      console.log(response);
-      setNext(response.next);
-      setPrevious(response.previous);
-      setLoading(false);
+          let response = await fetchPokemon(initialURL);
+          console.log(response);
+          setNext(response.next);
+          setPrevious(response.previous);
+          await loadPokemon(response.results);
+          setLoading(false);
         }
         catch (error) {
-    console.log(error);
-  }
+          console.log(error);
+        }
+      } fetchData();
+    }, [])
+
+  
+  const loadPokemon = async (data) => {
+    try{
+      let pokemonData = await Promise.all(data.map(async pokemon => {
+        let pokemonRecord = await fetchPokemon(pokemon.url);
+        return pokemonRecord;
+      }))
+      setPokemonData(pokemonData);
+    } catch (error) {
+      console.log(error);
     }
-    fetchData();
-  }, [])
+  }
+
   return (
     <div>
       <Header />
