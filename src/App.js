@@ -1,4 +1,5 @@
 import Header from './components/header';
+import './sass/main.scss';
 import './App.css';
 
 function App() {

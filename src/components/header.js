@@ -3,7 +3,7 @@ import Logo from '../images/pokemon-logo.gif'
 
 function Header (){
     return(
-        <div>
+        <div className="header">
             <img src={Logo} alt= "pokemon logo" width="200px"  />
         </div>
     )
