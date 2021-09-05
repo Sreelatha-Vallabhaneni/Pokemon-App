@@ -1,3 +1,4 @@
+
 .flex{
   display: flex;
   justify-content: space-evenly;
@@ -14,6 +15,9 @@
   margin: 0 80px;
 }
 .loader{
-  text-align: center;
-  background-color: purple;
+background-color: white !important;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 630px;
 }
