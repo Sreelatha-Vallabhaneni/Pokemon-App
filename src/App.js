@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/header';
 import { fetchPokemon } from './services/fetchPokemon';
+import Pagination from './components/pagination';
+import Card from './components/card';
 import './sass/main.scss';
+import './App.css';
 
 function App() {
   const [pokemonData, setPokemonData] = useState([])
@@ -26,7 +29,24 @@ function App() {
       } fetchData();
     }, [])
 
+    const nextPage = async () => {
+      setLoading(true);
+      let data = await fetchPokemon(next);
+      await loadPokemon(data.results);
+      setNext(data.next);
+      setPrevious(data.previous);
+      setLoading(false);
+    }
   
+    const prevPage = async () => {
+      setLoading(true);
+      let data = await fetchPokemon(previous);
+      await loadPokemon(data.results);
+      setNext(data.next);
+      setPrevious(data.previous);
+      setLoading(false);
+    }
+
   const loadPokemon = async (data) => {
     try{
       let pokemonData = await Promise.all(data.map(async pokemon => {
@@ -42,6 +62,23 @@ function App() {
   return (
     <div>
       <Header />
+      {
+        loading
+        ?
+        <h1>Loading...</h1>
+        :
+        <React.Fragment>
+          <div className="page-btn">
+            <Pagination gotoPrevPage={ previous ? prevPage : null}/>
+            <Pagination gotoNextPage={next ? nextPage : null} />
+          </div>
+          <div className="card-wrapper flex">
+            {pokemonData.map((pokemon, index) => {
+              return <Card className="single-card" key={index} pokemon={pokemon} />
+              })}
+          </div>
+        </React.Fragment>
+      }
     </div>
   );
 }
