@@ -1,0 +1,35 @@
+.card{
+    @include flexCenter;
+    flex-direction: column;
+    margin: 25px 10px;
+    padding: 10px;
+    background-color: rgb(243, 192, 174);
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    
+    &__img{
+        background-color: whitesmoke;
+        border-radius: 50% 50% 0 0;
+        padding: 15px;
+    }
+    &__info{
+        width: 200px;
+    }
+    &__weight, &__height, &__ability{
+        @include flexBetween;
+        font-size: 20px;
+        padding: 5px 0;
+    }
+    .name{
+        font-family: $font-cabin;
+        text-align: center;
+        font-weight: 500;
+        font-size: 32px;
+    }
+    .list-info{
+        font-size: 15px;
+    }
+}
+.card:hover{
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
