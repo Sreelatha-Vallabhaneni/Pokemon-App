@@ -95,6 +95,9 @@ console.log(limit)
                 <Route path='/pokemon/:id' component={PokemonPage}/>
               </Switch>
             </Router>
+            <div className="footer flex">
+              <h6>Developed by a passionate developer (SREELATHA VALLABHANENI)</h6>
+            </div>
         </React.Fragment>
       }
     </div>
