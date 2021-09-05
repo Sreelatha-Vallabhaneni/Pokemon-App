@@ -80,23 +80,13 @@ function App() {
                 </div>
                 <div className="card-wrapper flex">
                   {pokemonData.map((pokemon, index) => {
-                    //return <>
-                     return <Card className="single-card" key={index} pokemon={pokemon} />
-                    {/* <Link to={`/details/${pokemon.name}`} key={pokemon.name}>
-                     </Link> */}
-                     
-                     
-                     //</>
+                    return <Link to={`/pokemon/${pokemon.id}`} key={pokemon.name}>
+                      <Card className="single-card" key={index} pokemon={pokemon} />
+                    </Link>
                     })}
                 </div>
                 </Route>
                 <Route path='/pokemon/:id' component={PokemonPage}/>
-                {/* <Route exact path="/details" component={Details}>
-                       
-                     </Route> */}
-                {/* <Route exact path="/details">
-                  <CardDetails />
-                </Route> */}
               </Switch>
             </Router>
         </React.Fragment>

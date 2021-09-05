@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Card({ pokemon }) {
     return (
-        <Link to={`/pokemon/${pokemon.id}`} key={pokemon.name}>
+        
         <div className="card"  >
             <div className="card__img">
                 <img src={pokemon.sprites.other["official-artwork"].front_default} alt="Pokemon image"  width="180"/>
@@ -24,7 +24,7 @@ function Card({ pokemon }) {
                 </div>
             </div>
         </div>
-        </Link>
+        
     );
 }
 
