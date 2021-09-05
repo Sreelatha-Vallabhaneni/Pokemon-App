@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 function Card({ pokemon }) {
     return (
-        <div className="card">
+        <Link to={`/pokemon/${pokemon.id}`} key={pokemon.name}>
+        <div className="card"  >
             <div className="card__img">
                 <img src={pokemon.sprites.other["official-artwork"].front_default} alt="Pokemon image"  width="180"/>
             </div>
@@ -22,6 +24,7 @@ function Card({ pokemon }) {
                 </div>
             </div>
         </div>
+        </Link>
     );
 }
 

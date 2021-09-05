@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Header from './components/header';
 import { fetchPokemon } from './services/fetchPokemon';
 import Pagination from './components/pagination';
 import Card from './components/card';
+import Loader from './components/loader';
+import PokemonPage from './pages/pokemonPage';
 import './sass/main.scss';
 import './App.css';
 
@@ -58,25 +61,44 @@ function App() {
       console.log(error);
     }
   }
-
+//console.log(pokemonData)
   return (
     <div>
-      <Header />
       {
         loading
         ?
-        <h1>Loading...</h1>
+        <Loader />
         :
         <React.Fragment>
-          <div className="page-btn">
-            <Pagination gotoPrevPage={ previous ? prevPage : null}/>
-            <Pagination gotoNextPage={next ? nextPage : null} />
-          </div>
-          <div className="card-wrapper flex">
-            {pokemonData.map((pokemon, index) => {
-              return <Card className="single-card" key={index} pokemon={pokemon} />
-              })}
-          </div>
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                <Header />
+                <div className="page-btn">
+                  <Pagination gotoPrevPage={ previous ? prevPage : null}/>
+                  <Pagination gotoNextPage={next ? nextPage : null} />
+                </div>
+                <div className="card-wrapper flex">
+                  {pokemonData.map((pokemon, index) => {
+                    //return <>
+                     return <Card className="single-card" key={index} pokemon={pokemon} />
+                    {/* <Link to={`/details/${pokemon.name}`} key={pokemon.name}>
+                     </Link> */}
+                     
+                     
+                     //</>
+                    })}
+                </div>
+                </Route>
+                <Route path='/pokemon/:id' component={PokemonPage}/>
+                {/* <Route exact path="/details" component={Details}>
+                       
+                     </Route> */}
+                {/* <Route exact path="/details">
+                  <CardDetails />
+                </Route> */}
+              </Switch>
+            </Router>
         </React.Fragment>
       }
     </div>
