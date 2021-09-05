@@ -6,6 +6,7 @@ import Pagination from './components/pagination';
 import Card from './components/card';
 import Loader from './components/loader';
 import PokemonPage from './pages/pokemonPage';
+import CardsPerPage from './components/cardsPerPage';
 import './sass/main.scss';
 import './App.css';
 
@@ -14,10 +15,12 @@ function App() {
   const [next, setNext] = useState('');
   const [previous, setPrevious] = useState('');
   const [loading, setLoading] = useState(true);
-  const initialURL = 'https://pokeapi.co/api/v2/pokemon';
-
+  const [limit, setLimit] = useState();
+  const [offset, setOffset] =useState();
+  
   useEffect(() => {
     async function fetchData() {
+      const initialURL = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=0`;
         try{
           let response = await fetchPokemon(initialURL);
           console.log(response);
@@ -30,7 +33,7 @@ function App() {
           console.log(error);
         }
       } fetchData();
-    }, [])
+    }, [limit, offset])
 
     const nextPage = async () => {
       setLoading(true);
@@ -61,7 +64,7 @@ function App() {
       console.log(error);
     }
   }
-//console.log(pokemonData)
+console.log(limit)
   return (
     <div>
       {
@@ -73,7 +76,10 @@ function App() {
           <Router>
             <Switch>
               <Route exact path="/">
-                <Header />
+                <div className="header-wrapper flex">
+                  <Header />
+                  <CardsPerPage change={(e) => {setLimit(e.target.value)}} length={pokemonData.length} />
+                </div>
                 <div className="page-btn">
                   <Pagination gotoPrevPage={ previous ? prevPage : null}/>
                   <Pagination gotoNextPage={next ? nextPage : null} />
