@@ -3,7 +3,7 @@ import React from 'react';
 function CardsPerPage({change, length}) {
     return (
         <div className="select">
-            <h2 className="select__title">Select cards per page </h2> 
+            <h3 className="select__title">Select cards per page </h3> 
             <div className="select-container">
             <select className="select__wrap" onChange ={change} defaultValue={20}>
                 <optgroup label="Select cards">
