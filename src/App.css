@@ -13,3 +13,7 @@
   flex-wrap: wrap;
   margin: 0 80px;
 }
+.loader{
+  text-align: center;
+  background-color: purple;
+}
