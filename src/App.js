@@ -23,7 +23,6 @@ function App() {
       const initialURL = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=0`;
         try{
           let response = await fetchPokemon(initialURL);
-          console.log(response);
           setNext(response.next);
           setPrevious(response.previous);
           await loadPokemon(response.results);
@@ -64,7 +63,6 @@ function App() {
       console.log(error);
     }
   }
-console.log(limit)
   return (
     <div>
       {
