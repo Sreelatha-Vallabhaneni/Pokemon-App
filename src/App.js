@@ -78,7 +78,7 @@ console.log(limit)
               <Route exact path="/">
                 <div className="header-wrapper flex">
                   <Header />
-                  <CardsPerPage change={(e) => {setLimit(e.target.value)}} length={pokemonData.length} />
+                  <CardsPerPage change={(e) => {setLimit(e.target.value)}} />
                 </div>
                 <div className="page-btn">
                   <Pagination gotoPrevPage={ previous ? prevPage : null}/>

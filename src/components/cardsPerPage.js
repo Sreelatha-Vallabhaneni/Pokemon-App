@@ -1,16 +1,15 @@
 import React from "react";
 
-function CardsPerPage({ change, length }) {
+function CardsPerPage({ change }) {
   return (
     <div className="select">
-      <h3 className="select__title">Select cards per page </h3>
       <div className="select-container">
-        <select className="select__wrap" onChange={change} defaultValue={20}>
+        <select className="select__wrap" onChange={change}  placeholder="Select No.of Cards" >
+        <option value="Select cards per page">Select cards per page</option> 
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="50">50</option>
         </select>
-        <p>Total display Cards: {length}</p>
       </div>
     </div>
   );
