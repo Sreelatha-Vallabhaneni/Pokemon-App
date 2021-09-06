@@ -11,9 +11,14 @@
         border-radius: 10px;
         text-align: center;
         border: none;
-        padding: 8px;
+        padding: 0 8px;
     }
     &__wrap:focus{
         outline: none;
+    }
+}
+@media (max-width: 650px){
+    .select{
+        margin-top: 8px;
     }
 }

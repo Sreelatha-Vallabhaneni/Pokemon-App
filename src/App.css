@@ -35,3 +35,8 @@ height: 630px;
   justify-content: center !important;
   color: white;
 }
+@media (max-width: 650px){
+  .header-wrapper{
+    flex-wrap: wrap;
+  }
+}

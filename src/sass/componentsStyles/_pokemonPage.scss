@@ -1,3 +1,11 @@
+.pokemon-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    .back{
+        width: 50px;
+    }
+}
 .p-container{
     @include flexCenter;
     justify-content: space-around;
@@ -5,7 +13,7 @@
         background-color: rgba(233, 97, 24, 0.838);
         border-radius: 20px;
         padding: 25px 10px;
-        width: 500px;
+        width: 400px;
         h1{
             text-align: center;
             color: rgb(247, 199, 9);
@@ -31,4 +39,21 @@
     margin: 40px 0 0 50px;
     border-radius: 50%;
     background-color: rgb(238, 15, 130);
+}
+
+@media (max-width: 650px){
+    .p-container{
+        flex-wrap: wrap;
+    }
+    .back{
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    .fc-icon{
+        margin: 10px 0 0 10px;
+    }
+    .p-img-container img{
+        width: 350px;
+    }
 }
