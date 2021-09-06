@@ -12,15 +12,13 @@ function PokemonPage({ match }) {
   const getPokemon = async (id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const details = await fetchPokemon(url);
-    console.log(details);
     setPokemonDetails(details);
-    console.log(details);
+
     setLoading(false);
   };
   useEffect(() => {
     getPokemon(id);
   }, []);
-  console.log(pokemonDetails);
 
   return (
     <div>
@@ -58,9 +56,9 @@ function PokemonPage({ match }) {
                 <p>{pokemonDetails.order}</p>
               </div>
               <div className="p-info-list">
-                {pokemonDetails.types.map((type) => {
+                {pokemonDetails.types.map((type, index) => {
                   return (
-                    <div
+                    <div key={index}
                       className="p-info types"
                       style={{ backgroundColor: typeColors[type.type.name] }}
                     >
@@ -77,15 +75,30 @@ function PokemonPage({ match }) {
               src={pokemonDetails.sprites.back_default}
               alt={pokemonDetails.sprites.back_default}
             />
-            <img src={pokemonDetails.sprites.back_female} alt={pokemonDetails.sprites.back_female} />
-            <img src={pokemonDetails.sprites.back_shiny} alt={pokemonDetails.sprites.back_shiny} />
+            <img
+              src={pokemonDetails.sprites.back_female}
+              alt={pokemonDetails.sprites.back_female}
+            />
+            <img
+              src={pokemonDetails.sprites.back_shiny}
+              alt={pokemonDetails.sprites.back_shiny}
+            />
             <img
               src={pokemonDetails.sprites.back_shiny_female}
               alt={pokemonDetails.sprites.back_shiny_female}
             />
-            <img src={pokemonDetails.sprites.front_default} alt={pokemonDetails.sprites.front_default} />
-            <img src={pokemonDetails.sprites.front_female} alt={pokemonDetails.sprites.front_female} />
-            <img src={pokemonDetails.sprites.front_shiny} alt={pokemonDetails.sprites.front_shiny} />
+            <img
+              src={pokemonDetails.sprites.front_default}
+              alt={pokemonDetails.sprites.front_default}
+            />
+            <img
+              src={pokemonDetails.sprites.front_female}
+              alt={pokemonDetails.sprites.front_female}
+            />
+            <img
+              src={pokemonDetails.sprites.front_shiny}
+              alt={pokemonDetails.sprites.front_shiny}
+            />
             <img
               src={pokemonDetails.sprites.front_shiny_female}
               alt={pokemonDetails.sprites.front_shiny_female}
