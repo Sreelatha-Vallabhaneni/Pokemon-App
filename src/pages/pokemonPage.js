@@ -70,7 +70,7 @@ function PokemonPage({ match }) {
             </div>
           </div>
           <div className="p-sprites">
-            <h3 className="sprites">sprites</h3>
+            <h3 className="sprites"><u>sprites</u></h3>
             <img
               src={pokemonDetails.sprites.back_default}
               alt={pokemonDetails.sprites.back_default}
