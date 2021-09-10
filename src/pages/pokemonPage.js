@@ -58,7 +58,8 @@ function PokemonPage({ match }) {
               <div className="p-info-list">
                 {pokemonDetails.types.map((type, index) => {
                   return (
-                    <div key={index}
+                    <div
+                      key={index}
                       className="p-info types"
                       style={{ backgroundColor: typeColors[type.type.name] }}
                     >
@@ -70,7 +71,9 @@ function PokemonPage({ match }) {
             </div>
           </div>
           <div className="p-sprites">
-            <h3 className="sprites"><u>sprites</u></h3>
+            <h3 className="sprites">
+              <u>sprites</u>
+            </h3>
             <img
               src={pokemonDetails.sprites.back_default}
               alt={pokemonDetails.sprites.back_default}

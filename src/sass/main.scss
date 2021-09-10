@@ -1,14 +1,14 @@
 //import abstracts
-@import './abstracts/mixins';
+@import "./abstracts/mixins";
 
 // import Base
-@import './base/base';
-@import './base/typogrphy';
+@import "./base/base";
+@import "./base/typogrphy";
 
 //import component styles
-@import './componentsStyles/header';
-@import './componentsStyles//card.scss';
-@import './componentsStyles/pagination.scss';
-@import './componentsStyles//pokemonPage';
-@import './componentsStyles//cardsPerPage';
-@import './componentsStyles//search';
+@import "./componentsStyles/header";
+@import "./componentsStyles//card.scss";
+@import "./componentsStyles/pagination.scss";
+@import "./componentsStyles//pokemonPage";
+@import "./componentsStyles//cardsPerPage";
+@import "./componentsStyles//search";
