@@ -74,7 +74,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 *  Created a Pokémon web application to list all pokémon.
 *  Created Cardbased layout to each pokémon with details of Height, weight and abilities.
 *  Created an option to choose the number of cards available per page with options are 10,  20, and 50. Set as default cards are 20.
-*  Created #Next and #Previous fixed buttons on the page instead of placing top and bottom of the page, purpose for ease of use and it won't effect to the scrolling list and can use any time easily to navigate to next and previous list.
+*  Created `Next` and `Previous` fixed buttons on the page instead of placing top and bottom of the page, purpose for ease of use and it won't effect to the scrolling list and can use any time easily to navigate to next and previous list.
 *  Done unit testing for few components using Enzyme and jest.
 *  Maintained clean design, ease of use, accessibility and so on.
 *  Maintained responsive UI to all devices.
